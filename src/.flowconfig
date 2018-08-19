@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+
+[libs]
+src/flow-typed/
+
+[lints]
+
+[options]
+
+[strict]

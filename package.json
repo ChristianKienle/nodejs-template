@@ -1,0 +1,26 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "My new Project",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx babel src/ --out-dir dist --source-maps",
+    "build:watch": "npm run build -- --watch",
+    "start": "node ./dist/index.js",
+    "start:debug": "node --nolazy --inspect-brk ./dist/index.js",
+    "test": "jest ."
+  },
+  "author": "You and I",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-flow": "^7.0.0-rc.1",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "flow-bin": "^0.79.1",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.5.0"
+  }
+}
