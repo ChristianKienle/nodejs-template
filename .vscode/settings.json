@@ -1,13 +1,30 @@
 {
+  "editor.tabSize": 2,
   "eslint.options": {
     "configFile": ".eslintrc.js"
-},
-"files.exclude": {
-  "**/.git": true,
-  "**/.svn": true,
-  "**/.hg": true,
-  "**/CVS": true,
-  "**/.DS_Store": true,
-  "dist/": true
-}
+  },
+  "javascript.implicitProjectConfig.checkJs": false,
+  "javascript.validate.enable": false,
+  "typescript.tsc.autoDetect": "off",
+  "typescript.validate.enable": false,
+  "jest.pathToJest": "node_modules/.bin/jest",
+  "jest.showCoverageOnLoad": true,
+  "jest.pathToConfig": ".jest.config.js",
+  "jest.debugCodeLens.showWhenTestStateIn": [
+    "fail",
+    "unknown",
+    "pass",
+    "skip"
+  ],
+  "flow.useNPMPackagedFlow": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "dist/": true,
+    "node_modules": true,
+    ".coverage": true
+  }
 }

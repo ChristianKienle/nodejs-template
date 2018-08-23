@@ -3,7 +3,7 @@
 [include]
 
 [libs]
-src/flow-typed/
+flow-typed/
 
 [lints]
 

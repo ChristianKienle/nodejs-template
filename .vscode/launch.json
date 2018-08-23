@@ -5,13 +5,45 @@
   "version": "0.2.0",
   "configurations": [
     {
+      // Launch Configuration for Testing
+      // This launch configuration is required for debugging tests.
+      // The Jest Visual Studio Code plugin seems to pickup the settings
+      // being defined here. Most importantly --nolazy.
+      "name": "vscode-jest-tests",
       "type": "node",
       "request": "launch",
-      "name": "Launch index.js",
-      "program": "${workspaceFolder}/dist/index.js",
-      "sourceMaps": true,
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--runInBand",
+        "--config",
+        ".jest.config.js"
+      ],
       "runtimeArgs": [
         "--nolazy"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/index.js",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "preLaunchTask": "build",
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/dist/**/*.js"
       ]
     }
   ]

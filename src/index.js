@@ -1,4 +1,7 @@
 // @flow
 
-// Main Entry Point
-console.log('I am happy.');
+const main = () => {
+  console.log('😀  SUCCESS  😀');
+};
+
+main();

@@ -1,71 +1,73 @@
 module.exports = {
-  "parser": "babel-eslint",
-  "plugins": [
-    "flowtype"
+  'parser': 'babel-eslint',
+  'plugins': [
+    'flowtype'
   ],
-  "extends": [
-    "plugin:flowtype/recommended"
+  'extends': [
+    'plugin:flowtype/recommended'
   ],
-  "rules": {
-    "flowtype/boolean-style": [
+  'rules': {
+    'eol-last': ['error', 'always'],
+    'quotes': ['error', 'single'],
+    'flowtype/boolean-style': [
       2,
-      "boolean"
+      'boolean'
     ],
-    "flowtype/define-flow-type": 1,
-    "flowtype/delimiter-dangle": [
+    'flowtype/define-flow-type': 1,
+    'flowtype/delimiter-dangle': [
       2,
-      "never"
+      'never'
     ],
-    "flowtype/generic-spacing": [
+    'flowtype/generic-spacing': [
       2,
-      "never"
+      'never'
     ],
-    "flowtype/no-primitive-constructor-types": 2,
-    "flowtype/no-types-missing-file-annotation": 2,
-    "flowtype/no-weak-types": 2,
-    "flowtype/object-type-delimiter": [
+    'flowtype/no-primitive-constructor-types': 2,
+    'flowtype/no-types-missing-file-annotation': 2,
+    'flowtype/no-weak-types': 2,
+    'flowtype/object-type-delimiter': [
       2,
-      "comma"
+      'comma'
     ],
-    "flowtype/require-parameter-type": 2,
-    "flowtype/require-return-type": [
+    'flowtype/require-parameter-type': 2,
+    'flowtype/require-return-type': [
       2,
-      "always",
+      'always',
       {
-        "annotateUndefined": "never"
+        'annotateUndefined': 'never'
       }
     ],
-    "flowtype/require-valid-file-annotation": 2,
-    "flowtype/semi": [
+    'flowtype/require-valid-file-annotation': 2,
+    'flowtype/semi': [
       2,
-      "always"
+      'always'
     ],
-    "flowtype/space-after-type-colon": [
+    'flowtype/space-after-type-colon': [
       2,
-      "always"
+      'always'
     ],
-    "flowtype/space-before-generic-bracket": [
+    'flowtype/space-before-generic-bracket': [
       2,
-      "never"
+      'never'
     ],
-    "flowtype/space-before-type-colon": [
+    'flowtype/space-before-type-colon': [
       2,
-      "never"
+      'never'
     ],
-    "flowtype/type-id-match": [
+    'flowtype/type-id-match': [
       2,
-      "^([A-Z][a-z0-9]+)+Type$"
+      '^([A-Z][a-z0-9]+)+Type$'
     ],
-    "flowtype/union-intersection-spacing": [
+    'flowtype/union-intersection-spacing': [
       2,
-      "always"
+      'always'
     ],
-    "flowtype/use-flow-type": 1,
-    "flowtype/valid-syntax": 1
+    'flowtype/use-flow-type': 1,
+    'flowtype/valid-syntax': 1
   },
-  "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
+  'settings': {
+    'flowtype': {
+      'onlyFilesWithFlowAnnotation': false
     }
   }
 };
