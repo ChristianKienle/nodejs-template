@@ -20,7 +20,8 @@ module.exports = {
   plugins,
 
   // For compatibility we generate inline source maps _and_
-  // source maps in dedicated files. 
+  // source maps in dedicated files. However due to a bug in babel
+  // this option is not honored at the moment.
   sourceMaps: 'both',
 
   // Retaining lines increases debugability but may lead to less
