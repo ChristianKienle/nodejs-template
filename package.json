@@ -27,6 +27,7 @@
     "eslint-plugin-import": "^2.2.0",
     "flow-bin": "^0.79.1",
     "flow-typed": "^2.5.1",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "jest-extended": "^0.8.1"
   }
 }
