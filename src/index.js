@@ -1,7 +1,8 @@
 // @flow
+'use strict';
 
-const main = () => {
-  console.log('😀  SUCCESS  😀');
-};
+const {
+  logger
+} = require('@lib');
 
-main();
+logger.log('😀  hello from index.js  😀');

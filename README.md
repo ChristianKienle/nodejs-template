@@ -6,6 +6,7 @@ If you use *nodejs-template* as a starting point for new Node.js projects you wi
 
 <table>
   <tbody>
+	  <tr><td>✅</td><td><a href="#custom-module-aliases">Custom Module Aliases</a></td></tr>
     <tr><td>✅</td><td>Type checks (optional) using <a href="https://flow.org">Flow</a>.</td></tr>
     <tr><td>✅</td><td>Unit Tests (optional) using <a href="https://jestjs.io/">Jest</a>.</td></tr>
     <tr><td>✅</td><td>Basic <a href="https://babeljs.io/">Babel</a> Configuration</td></tr>
@@ -21,6 +22,7 @@ If you use *nodejs-template* as a starting point for new Node.js projects you wi
 **Table of Contents**
 
 * [Getting Started](#getting-started)
+* [Changelog](#changelog)
 * [Compiling](#compiling)
 * [Running](#running)
 	* [Running from command line](#running-from-command-line)
@@ -29,6 +31,7 @@ If you use *nodejs-template* as a starting point for new Node.js projects you wi
 	* [Debugging with Chrome DevTools](#debugging-with-chrome-devtools)
 	* [Debugging with Visual Studio Code](#debugging-with-visual-studio-code)
 * [Testing](#testing)
+* [Custom Module Aliases](#custom-module-aliases)
 * [What is this?](#what-is-this)
 * [Future](#future)
 
@@ -39,11 +42,20 @@ Using this template is easy:
 
 ```
 $ git clone https://github.com/ChristianKienle/nodejs-template.git myproject
+$ rm -rf myproject/.git
 $ cd myproject
 $ npm install && npm run build && npm run start
 ```
 
 You can edit `package.json` accordingly and adapt the template to your needs.
+
+## Changelog
+
+### v.1.0.1 (2018-08-06)
+* **NEW** – [Custom Module Aliases](#custom-module-aliases): `require('@lib')` vs. `require('./../../../../../lib')`.
+* **NEW** – npm scripts: `lint` and `lint:fix`.
+* **FIX** – Enabled ESLint for config files.
+* Relaxed flow linting rules a little. 
 
 ## Compiling
 Since this template is using [Flow](https://flow.org) (for type checking) the code has to be compiled before it can be executed. However, compiling is optional if you are:
@@ -143,6 +155,51 @@ A few notes about testing and this template:
 - Type checking using Flow should work in tests (Jest type annotations are installed and enabled)
 - ESLint is configured to ignore type definitions installed via *flow-typed* (subfolder: *npm*).
 - Files matching `src/**/*.test.js` will be executed by Jest.
+
+## Custom Module Aliases
+You can easily define custom module aliases. A custom module alias allows you to replace relative imports/requires like `require('./../../../../../lib')` with just `require('@lib')`.
+
+In face, this template project comes with a single preconfigured module alias: `@lib`. Everything inside the `src/lib` folder can be imported by using `@lib`. 
+
+**Creating a custom module alias:**
+
+In order to create a custom module alias called `@utils` you have to:
+
+<strong>1. Create a new directory</strong>
+
+```
+$ mkdir ./src/utils
+```
+
+<strong>2. Add the alias to `.babelrc.js`</strong>
+
+```
+…
+const plugins = [
+  ['module-resolver', {
+    'root': ['./src'],
+    'alias': {
+     '@lib': './src/lib',
+     '@utils': './src/utils',
+//    ^
+//    ^___ this is your new alias
+    }
+  }]
+];
+…
+```
+
+<strong>3. Add the alias to `./src/.flowconfig`</strong> (optional)
+
+```
+…
+[options]
+…
+module.name_mapper='^@utils$' -> '<PROJECT_ROOT>/utils/'
+module.name_mapper='^@utils\/\(.*\)$' -> '<PROJECT_ROOT>/utils/\1'
+…
+```
+
 
 ## What is this?
 It is being said that getting into JavaScript development is easy. This may be true. The language it very forgiving (wat?) and (compared to many other languages) has very few key concepts (which is a good thing IMHO. Writing the first 100 lines of JavaScript code is easy. However, without any tooling writing more code than that quickly becomes unmanageable. Fortunately there are many tools that make it a joy to write more than 100 lines of JavaScript. Unfortunately setting those tools up can be frustrating. It is usually a mix of trial and error with a lot of reading in-between. This repository contains a very basic project template that can be used as a basis for new Node.js projects. If you use this template as a starting point you get the following things (preconfigured):

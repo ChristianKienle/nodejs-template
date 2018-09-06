@@ -17,7 +17,7 @@ module.exports = {
     }
   },
   transform: {
-  '^.+\\.js$': 'babel-jest'
+    '^.+\\.js$': 'babel-jest'
   },
   moduleFileExtensions: ['js'],
   setupTestFrameworkScriptFile: 'jest-extended',

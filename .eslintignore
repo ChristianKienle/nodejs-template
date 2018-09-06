@@ -1,1 +1,10 @@
+# ignore the output of npm run build
+dist/*
+
+# ignore third party flow type definitions
 src/flow-typed/npm/*
+
+# do not ignore some important config files
+!.eslintrc.js
+!.babelrc.js
+!.jest.config.js

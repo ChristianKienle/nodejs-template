@@ -9,4 +9,15 @@ flow-typed/
 
 [options]
 
+# The following two lines map '@lib' to 'src/lib' and '@lib/$x' to 'src/lib/$x'.
+# This makes it possible to require the lib modules like this:
+# const lib = require('@lib');
+# Or like this: (assuming lib exports a logger):
+# const { logger } = require('@lib');
+# You can add more mapped directories here but you have to make sure to also
+# adjust your .babelrc.js file accordingly. Please refer to the documentation.
+
+module.name_mapper='^@lib$' -> '<PROJECT_ROOT>/lib/'
+module.name_mapper='^@lib\/\(.*\)$' -> '<PROJECT_ROOT>/lib/\1'
+
 [strict]

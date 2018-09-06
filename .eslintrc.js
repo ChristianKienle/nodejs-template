@@ -9,6 +9,9 @@ module.exports = {
   'rules': {
     'eol-last': ['error', 'always'],
     'quotes': ['error', 'single'],
+    'no-unused-vars': 'error',
+    'indent': ['error', 2, { 'SwitchCase': 1 }],
+    'eol-last': ['error', 'always'],
     'flowtype/boolean-style': [
       2,
       'boolean'
@@ -34,7 +37,8 @@ module.exports = {
       2,
       'always',
       {
-        'annotateUndefined': 'never'
+        annotateUndefined: 'never',
+        excludeArrowFunctions: true,
       }
     ],
     'flowtype/require-valid-file-annotation': 2,
@@ -56,7 +60,7 @@ module.exports = {
     ],
     'flowtype/type-id-match': [
       2,
-      '^([A-Z][a-z0-9]+)+Type$'
+      '^([A-Z][a-z0-9]+)$'
     ],
     'flowtype/union-intersection-spacing': [
       2,

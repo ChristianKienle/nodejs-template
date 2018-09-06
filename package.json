@@ -1,18 +1,20 @@
 {
   "name": "nodejs-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My new Project",
   "main": "index.js",
+  "author": "Christian Kienle",
+  "license": "MIT",
   "scripts": {
     "build": "npx babel --config-file ./.babelrc.js src/ --out-dir dist",
     "build:watch": "npm run build -- --watch",
     "start": "node ./dist/index.js",
     "start:debug": "node --nolazy --inspect-brk ./dist/index.js",
     "test": "jest --runInBand --config .jest.config.js src/",
-    "test:watch": "npm run test -- --watchAll"
+    "test:watch": "npm run test -- --watchAll",
+    "lint": "npx eslint --config .eslintrc.js .",
+    "lint:fix": "npm run lint -- --fix"
   },
-  "author": "Christian Kienle",
-  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -22,9 +24,9 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^5.5.0",
     "eslint-plugin-flowtype": "^2.50.0",
-    "eslint-plugin-import": "^2.14.0",
     "flow-bin": "^0.80.0",
     "flow-typed": "^2.5.1",
     "jest": "^23.5.0",
